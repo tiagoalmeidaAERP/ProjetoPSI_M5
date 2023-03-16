@@ -14,6 +14,6 @@
 
     5. Introduza os valores 
 
-    6. E terá os resultados
+    6. E terá os resultados (Não contêm valores arredondados)
 
 ----
