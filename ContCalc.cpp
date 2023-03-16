@@ -8,6 +8,8 @@
 #include <string>
 #include <cstdlib>
 #include <stdlib.h>
+#include <time.h>
+#include <wchar.h>
 
 using namespace std;
 
@@ -75,37 +77,45 @@ int proporcao(int& x, int& y, int& z);
 int juros(int& x, int& y, int& z, int& n);
 //							Distancia entre 2 pontos
 int dist(int& x, int& y, int& z, int& n, int& v);
+// 							Energia Cinetica
+int ener_cin(int& x, int& y, int& z);				
 
 int i;
+string tel ; 
+
 
 
 int main() {
-		
 	
-	setlocale(LC_ALL, "Portuguese");
-	
+	setlocale(LC_ALL, "en_US.UTF-8");
+
 	pessoa utilizador;
 	cout << "Nome:";
 	_flushall(); gets(utilizador.nome);
+	system("cls");
 	cout << "Data de nascimento:\n";
 	cout << "Dia:";
 	cin >> utilizador.dataNasc.dia;
-	cout << "Mês: ";
+	cout << "Mes: ";
 	cin >> utilizador.dataNasc.mes;
 	cout << "Ano: ";
 	cin >> utilizador.dataNasc.ano;
 	system("cls");
-	
-
+	cout << "Introduza o numero de telefone: " << endl;
+	cin >> tel;
 	system("cls");
 		
 	cout << "Registro feito com sucesso Bem-Vindo.... (A carregar os seus dados) " << endl;
-		
+	
+	cout << "Nome:" << endl;
 	cout << utilizador.nome << "\n";
+	cout << "Data de nascimento" << endl;
 	cout << utilizador.dataNasc.dia << "/";
 	cout << utilizador.dataNasc.mes << "/";
-	cout << utilizador.dataNasc.ano << "/";
-	system("pause");
+	cout << utilizador.dataNasc.ano << endl;
+	cout << "Numero de telefone" << endl;
+	cout << tel << endl;
+	system("pause"); 
 	system("cls");
 	
 	menu();
@@ -155,6 +165,7 @@ void menu()
 	cout << "[29] Proporcao" << endl;
 	cout << "[30] Juros" << endl;
 	cout << "[31] Distancia entre 2 pontos" << endl;
+	cout << "[32] Energia Cinetica" << endl;
 	cin >> op;
 	system("cls");
 
@@ -306,7 +317,7 @@ void menu()
 
 	case 30:
 
-		cout << "O valor de juros em euros e de: 	" << juros(x,y,z,n) << endl;
+		cout << "O valor dos juros  e de: 	" << juros(x,y,z,n) << endl;
 		break;
 
 	case 31:
@@ -314,9 +325,14 @@ void menu()
 		cout << "A distancia entre 2 pontos e de: 	" << dist(x,y,z,v,n) << endl;
 		break;
 
+	case 32:
+
+		cout << "O valor da energia cinética é de: 	" << ener_cin(x,y,z) << "Joules" << endl;
+		break;
+
 	}
 }
-// ZONA DOS CaLCULOS BaSCOS
+// ZONA DOS CaLCULOS BaSiCOS
 int soma(int& x, int& y) {
 	cout << "Digite os numeros para fazer a soma (1/2)" << endl;
 	cin >> x;
@@ -653,7 +669,7 @@ int juros(int& x, int& y, int& z, int& n) {
 	cout << "Introduza o tempo (em anos)" << endl;
 	cin >> z;
 
-	n = x * (y/ 100) * z;
+	n = (x * y * z)/100;
 
 	system("cls");
 	return (z);
@@ -671,3 +687,17 @@ int dist(int& x, int& y, int& z, int& n, int& v) {
    system("cls");
    return(n);
 }
+int ener_cin(int& x, int& y, int& z) {
+
+	cout << "Introduza o valor da massa" << endl;
+	cin >> x;
+
+	cout << "Introduza o valor de velocidade" << endl;
+	cin >> y;
+
+	z = 0.5 * x * pow(y, 2);
+
+	return(z);
+}
+
+	
