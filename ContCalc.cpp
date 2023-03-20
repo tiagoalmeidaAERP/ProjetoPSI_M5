@@ -28,57 +28,57 @@ struct pessoa
 void menu();
 
 // ZONA DOS CALCULOS BASICOS
-int soma(int& x, int& y);
-int sub(int& x, int& y);
-int mult(int& x, int& y);
-int divi(int& x, int& y);
-int raiz(int& x, int& y);
+float soma(float& x, float& y);
+float sub(float& x, float& y);
+float mult(float& x, float& y);
+float divi(float& x, float& y);
+float raiz(float& x, float& y);
 // ZONA DOS TEOREMAS
-int pot(int& x, int& y);
-int pit(int& x, int& y);
-int fer(int& x, int& y, int& z, int& n, int& v);
-int rest(int& x, int& y, int& z, int& n);
+float pot(float& x, float& y);
+float pit(float& x, float& y);
+float fer(float& x, float& y, float& z, float& n, float& v);
+int rest(int& a, int& b, int& c, int& d);
 // ZONA DOS CONVERSORES
 //						temperatura
-int faren(int& x, int& y);
-int cel(int& x, int& y);
+float faren(float& x, float& y);
+float cel(float& x, float& y);
 // 					radianos e graus
-int gr_rad(int& x, int& y);
-int rad_gr(int& x, int& y);
+float gr_rad(float& x, float& y);
+float rad_gr(float& x, float& y);
 //						cm e inches
-int cm_inch(int& x, int& y);
-int inch_cm(int& x, int& y);
+float cm_inch(float& x, float& y);
+float inch_cm(float& x, float& y);
 //      metros e pes
-int met_ft(int& x, int& y);
-int ft_met(int& x, int& y);
+float met_ft(float& x, float& y);
+float ft_met(float& x, float& y);
 //						km/h e m/s
-int kmh_ms(int& x, int& y);
-int ms_kmh(int& x, int& y);
+float kmh_ms(float& x, float& y);
+float ms_kmh(float& x, float& y);
 // 					kilos e libras
-int kil_lib(int& x, int& y);
-int lib_kil(int& x, int& y);
+float kil_lib(float& x, float& y);
+float lib_kil(float& x, float& y);
 // 						litros e galoes
-int li_gal(int& x, int& y);
-int gal_li(int& x, int& y);
+float li_gal(float& x, float& y);
+float gal_li(float& x, float& y);
 //							OUTROS
 //							IMC
-int imc(int& x, int& y, int& z);
+float imc(float& a, float& b, float& c);
 //							DESCONTO
-int desc(int& x, int& y, int& z);
+float desc(float& x, float& y, float& z);
 //							Tempo de viagem
-int tViagem(int& x, int& y, int& z);
+float tViagem(float& x, float& y, float& z);
 //							Impostos (PT)
-int impostoPT(int& x, int& y, int& z);
+float impostoPT(float& x, float& y, float& z);
 //							Densidade
-int densidade(int& x, int& y, int& z);
+float densidade(float& x, float& y, float& z);
 //							Proporcao
-int proporcao(int& x, int& y, int& z);
+float proporcao(float& x, float& y, float& z);
 //							Juros
-int juros(int& x, int& y, int& z, int& n);
+float juros(float& x, float& y, float& z, float& n);
 //							Distancia entre 2 pontos
-int dist(int& x, int& y, int& z, int& n, int& v);
+float dist(float& x, float& y, float& z, float& n, float& v);
 // 							Energia Cinetica
-int ener_cin(int& x, int& y, int& z);				
+float ener_cin(float& x, float& y, float& z);				
 
 int i;
 string tel ; 
@@ -87,7 +87,9 @@ string tel ;
 
 int main() {
 	
-	setlocale(LC_ALL, "en_US.UTF-8");
+	setlocale(LC_ALL, "Portuguese");
+
+	char res;
 
 	pessoa utilizador;
 	cout << "Nome:";
@@ -118,12 +120,26 @@ int main() {
 	system("pause"); 
 	system("cls");
 	
+	do {
+	
 	menu();
+	
+	
+	cout << "Deseja continuar a usar o programa? (s/n)" << endl;
+	cin >> res;
+	} while(res == 's'|| res == 'S');
+
+	cout << "A fechar o programa...." << endl;
+	return 0;
 }
 
 void menu()
 {
-	int x, y, z, v, n ,op;
+	float x, y, z, v, n;
+	int a,b,c,d;
+	int op;
+	
+
 	cout << "******************************Contas Basicas******************************" << endl;
 	cout << "[1] Soma" << endl;
 	cout << "[2] Subtracao" << endl;
@@ -212,7 +228,7 @@ void menu()
 	
 	case 9:
 
-		cout << "O resultado do teorema resto e: " << rest(x,y,z,n);
+		cout << "O resultado do teorema resto e: " << rest(a,b,c,d);
 		break;
 	
 	case 10:
@@ -227,7 +243,7 @@ void menu()
 		
 	case 12:
 		
-		cout << x	<< "Graus corresponde a: " << gr_rad(x,y) << "radianos" << endl;
+		cout << x << "Graus corresponde a: " << gr_rad(x,y) << "radianos" << endl;
 		break;
 		
 	case 13:
@@ -272,17 +288,17 @@ void menu()
 		
 	case 21:
 		
-		cout << x  <<   "Lbs e igual a:"		<< kil_lib(x,y) << "kg" 	<< endl;
+		cout << x  <<   "Lbs e igual a:"	<< kil_lib(x,y) << "kg" 	<< endl;
 		break;
 		
 	case 22:
 		
-		cout << x  <<   "L e igual a:"		<< li_gal(x,y) << "gal" 	<< endl;
+		cout << x  <<   "L e igual a:"	<< li_gal(x,y) << "gal" 	<< endl;
 		break;
 		
 	case 23:
 		
-		cout << x  <<   "Gal e igual a:"		<< gal_li(x,y) << "L" 	<< endl;
+		cout << x  <<   "Gal e igual a:" << gal_li(x,y) << "L" 	<< endl;
 		break;
 		
 	case 24:
@@ -292,7 +308,7 @@ void menu()
 	
 	case 25:
 		
-		cout << "O seu produto de " << 	x 	<< 	" e com desconto de  " <<  y  << " , fica a	" <<  desc(x,y,z) <<  "euros"  << endl;
+		cout << "O seu produto de " << 	x << " e com desconto de  " << y  << ", fica a	" <<  desc(x,y,z) << "euros"  << endl;
 		break;
 
 	case 26:
@@ -333,7 +349,7 @@ void menu()
 	}
 }
 // ZONA DOS CaLCULOS BaSiCOS
-int soma(int& x, int& y) {
+float soma(float& x, float& y) {
 	cout << "Digite os numeros para fazer a soma (1/2)" << endl;
 	cin >> x;
 	cout << "Digite os numeros para fazer a soma (2/2)" << endl;
@@ -343,7 +359,7 @@ int soma(int& x, int& y) {
 	return (x + y);
 }
 
-int sub(int& x, int& y) {
+float sub (float& x, float& y) {
 	cout << "Digite os numeros para fazer a subtracao (1/2)" << endl;
 	cin >> x;
 	cout << "Digite os numeros para fazer a subtracao (2/2)" << endl;
@@ -353,7 +369,7 @@ int sub(int& x, int& y) {
 	return (x - y);
 }
 
-int mult(int& x, int& y) {
+float mult(float& x, float& y) {
 	cout << "Digite os numeros para fazer a mutiplicacao (1/2)" << endl;
 	cin >> x;
 	cout << "Digite os numeros para fazer a mutiplicacao (2/2)" << endl;
@@ -363,7 +379,7 @@ int mult(int& x, int& y) {
 	return (x * y);
 }
 
-int divi(int& x, int& y) {
+float divi(float& x, float& y) {
 	cout << "Digite os numeros para fazer a divisao (1/2)" << endl;
 	cin >> x;
 	cout << "Digite os numeros para fazer a divisao (2/2)" << endl;
@@ -373,13 +389,13 @@ int divi(int& x, int& y) {
 	return (x / y);
 }
 
-int raiz(int& x, int& y) {
+float raiz(float& x, float& y) {
 	cout << "Digite o numero para fazer a raiz quadrada" << endl;
 	cin >> x;
 	system("cls");
 	return (sqrt(x));
 }
-int pot(int& x, int& y) {
+float pot(float& x, float& y) {
 	cout << "Digite o expoente: " << endl;
 	cin >> x;
 	cout << "Digite a base: " << endl;
@@ -388,7 +404,7 @@ int pot(int& x, int& y) {
 	return (pow(x, y));
 }
 // ZONA DOS TEOREMAS
-int pit(int& x, int& y) {
+float pit(float& x, float& y) {
 	double h;
 	cout << "Digite o valor de um cateto (1/2)" << endl;
 	cin >> x;
@@ -413,8 +429,8 @@ int rest(int& x, int& y, int& z, int& n) {
 	system("cls");
 	return (n);
 }
-int fer(int& x, int& y, int& z, int& n, int& v) {
-	long long int resultado;
+float fer(float& x, float& y, float& z, float& n, float& v) {
+	
 	cout << "Digite o valor de x :" << endl;
 	cin >> x;
 	cout << "Digite o valor de y :" << endl;
@@ -438,7 +454,7 @@ int fer(int& x, int& y, int& z, int& n, int& v) {
 	cout << fixed << setprecision(2) << v;
 }
 // ZONA DOS CONVERSORES
-int faren(int& x, int& y) {
+float faren(float& x, float& y) {
 
 	
 	cout << "Introduza os graus em Celsius para fazer a conversao: " << endl;
@@ -449,7 +465,7 @@ int faren(int& x, int& y) {
 	system("cls");
 	return (y);
 }
-int cel(int& x, int& y) {
+float cel(float& x, float& y) {
 
 	cout << "Introduza os graus em Farenheit para fazer a conversao: " << endl;
 	cin >> x;
@@ -459,16 +475,16 @@ int cel(int& x, int& y) {
 	system("cls");
 	return (y);
 }
-int gr_rad(int& x, int& y) {
+float gr_rad(float& x, float& y) {
 	
 	cout << "Introduza os graus para fazer a conversao" << endl;
 	cin >> x;
-	y = x * (M_PI/180);
+	y = x * (3.14159265359/180);
 	
 	system("cls");
 	return (y);
 }
-int rad_gr(int& x, int& y) {
+float rad_gr(float& x, float& y) {
 	
 	cout << "Introduza os radianos para fazer a conversao" << endl;
 	cin >> x;
@@ -477,7 +493,7 @@ int rad_gr(int& x, int& y) {
 	system("cls");
 	return (y);
 }
-int cm_inch(int& x, int& y) {
+float cm_inch(float& x, float& y) {
 
 			
 				cout << "Introduza a quantidade em cm para fazer a conversao: " << endl;
@@ -487,13 +503,13 @@ int cm_inch(int& x, int& y) {
    	system("cls");
    	return (y);
 }
-int inch_cm(int& x, int& y) {
+float inch_cm(float& x, float& y) {
 				
 				cout << "Digite a quantidade em polegadas para fazer a conversao: " << endl;
     cin >> x;
     y = x * 2.54;
 }
-int met_ft(int& x, int& y) {
+float met_ft(float& x, float& y) {
 	
 	cout << "Introduza a medida metrica para fazer a conversao" << endl;
 	cin >> x;
@@ -503,7 +519,7 @@ int met_ft(int& x, int& y) {
 	system("cls");
 	return (y);
 }
-int ft_met(int& x, int& y) {
+float ft_met(float& x, float& y) {
 	
 	cout << "Introduza a medida em pes para fazer a conversao" << endl;
 	cin >> x;
@@ -513,7 +529,7 @@ int ft_met(int& x, int& y) {
 	system("cls");
 	return (y);
 }
-int kmh_ms(int& x, int& y) {
+float kmh_ms(float& x, float& y) {
 	
 	cout << "Introduza a velocidade em KM/h para fazer a conversao" << endl;
 	cin >> x;
@@ -523,7 +539,7 @@ int kmh_ms(int& x, int& y) {
 	system("cls");
 	return (y);
 }
-int ms_kmh(int& x, int& y) {
+float ms_kmh(float& x, float& y) {
 	
 	cout << "Introduza a velocidade em M/s para fazer a conversao" << endl;
 	cin >> x;
@@ -533,7 +549,7 @@ int ms_kmh(int& x, int& y) {
 	system("cls");
 	return (y);
 }
-int kil_lib(int& x, int& y) {
+float kil_lib(float& x, float& y) {
 	
 	cout << "Introduza o peso em kilogramas para fazer a conversao" << endl;
 	cin >> x;
@@ -543,7 +559,7 @@ int kil_lib(int& x, int& y) {
 	system("cls");
 	return (y);
 }
-int lib_kil(int& x, int& y) {
+float lib_kil(float& x, float& y) {
 	
 	cout << "Introduza o peso em libras para fazer a conversao" << endl;
 	cin >> x;
@@ -553,7 +569,7 @@ int lib_kil(int& x, int& y) {
 	system("cls");
 	return (y);
 }
-int li_gal(int& x, int& y) {
+float li_gal(float& x, float& y) {
 	
 	cout << "Introduza a quantidade em litros para fazer a conversao" << endl;
 	cin >> x;
@@ -563,7 +579,7 @@ int li_gal(int& x, int& y) {
 	system("cls");
 	return (y);
 }
-int gal_li(int& x, int& y) {
+float gal_li(float& x, float& y) {
 	
 	cout << "Introduza a quantidade em galoes para fazer a conversao" << endl;
 	cin >> x;
@@ -574,31 +590,33 @@ int gal_li(int& x, int& y) {
 	return (y);
 }
 // ZONA OUTROS
-int imc(int& x, int& y, int& z) {
+float imc(float& a, float& b, float& c) {
 	
 	cout << "Digite o seu peso em KG" << endl;
-	cin >> x;
-	cout << "Digite a sua altura " << endl;
-	cin >> y;
+	cin >> a;
+	cout << "Digite a sua altura [Metros] " << endl;
+	cin >> b;
 
-	z = x / pow(y, 2);
+	c = a / pow(b, 2);
 
 	system("cls");
-	return (z);
+	return (c);
 }
-int desc(int& x, int& y, int& z) {
+float desc(float& x, float& y, float& z) {
 	
 	cout << "Digite o preco do seu produto" << endl;
 	cin >> x;
 	cout << "Digite o desconto do produto" << endl;
 	cin >> y;
 
-	z = x - (x * (y/100));
+	z = (x*y)/100;
+
+	z = x - z;
 
 	system("cls");
 	return (z);
 }
-int tViagem(int& x, int& y, int& z) {
+float tViagem(float& x, float& y, float& z) {
 
 	cout << "Introduza a distancia percorrida (Km)" << endl;
 	cin >> x;
@@ -610,7 +628,7 @@ int tViagem(int& x, int& y, int& z) {
 	system("cls");
 	return (z);
 }
-int impostoPT(int& x, int& y, int& z) {
+float impostoPT(float& x, float& y, float& z) {
 
 	cout << "Introduza o seu rendimento anual" << endl;
 	cin >> x;
@@ -636,7 +654,7 @@ int impostoPT(int& x, int& y, int& z) {
 	system("cls");
 	return (z);
 }
-int densidade(int& x, int& y, int& z) {
+float densidade(float& x, float& y, float& z) {
 
 	cout << "Introduza a massa (em gramas)" << endl;
 	cin >> x;
@@ -648,7 +666,7 @@ int densidade(int& x, int& y, int& z) {
 	system("cls");
 	return (z);
 }
-int proporcao(int& x, int& y, int& z) {
+float proporcao(float& x, float& y, float& z) {
 
 	cout << "Introduza a primeira parte" << endl;
 	cin >> x;
@@ -660,7 +678,7 @@ int proporcao(int& x, int& y, int& z) {
 	system("cls");
 	return (z);
 }
-int juros(int& x, int& y, int& z, int& n) {
+float juros(float& x, float& y, float& z, float& n) {
 
 	cout << "Introduza a capital (em euros)" << endl;
 	cin >> x;
@@ -674,7 +692,7 @@ int juros(int& x, int& y, int& z, int& n) {
 	system("cls");
 	return (z);
 }
-int dist(int& x, int& y, int& z, int& n, int& v) {
+float dist(float& x, float& y, float& z, float& n, float& v) {
 
    cout << "Introduza as coordenadas do primeiro ponto (x1, y1): " << endl;
    cin >> x >> y;
@@ -687,7 +705,7 @@ int dist(int& x, int& y, int& z, int& n, int& v) {
    system("cls");
    return(n);
 }
-int ener_cin(int& x, int& y, int& z) {
+float ener_cin(float& x, float& y, float& z) {
 
 	cout << "Introduza o valor da massa" << endl;
 	cin >> x;
