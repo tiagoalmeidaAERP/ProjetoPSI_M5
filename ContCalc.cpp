@@ -98,10 +98,27 @@ int main() {
 	cout << "Data de nascimento:\n";
 	cout << "Dia:";
 	cin >> utilizador.dataNasc.dia;
+	if (utilizador.dataNasc.dia < 1 || utilizador.dataNasc.ano > 31) {
+
+		cout << "Esse dia e invalido, volte a introduzir o dia" << endl;
+		cin >> utilizador.dataNasc.dia;
+	}
 	cout << "Mes: ";
 	cin >> utilizador.dataNasc.mes;
+	if (utilizador.dataNasc.ano < 1 || utilizador.dataNasc.ano > 12) {
+
+		cout << "Esse mes e invalido, volte a introduzir o mes" << endl;
+		cin >> utilizador.dataNasc.mes;
+	}
 	cout << "Ano: ";
 	cin >> utilizador.dataNasc.ano;
+	
+	if (utilizador.dataNasc.ano <= 1922 || utilizador.dataNasc.ano > 2018) {
+
+		cout << "Esse ano de nascimento e invalido, volte a introduzir a data de nascimento" << endl;
+		cin >> utilizador.dataNasc.ano;
+	}
+	
 	system("cls");
 	cout << "Introduza o numero de telefone: " << endl;
 	cin >> tel;
