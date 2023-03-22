@@ -350,12 +350,12 @@ void menu()
 
 	case 30:
 
-		cout << "O valor dos juros  e de: 	" << juros(x,y,z,n) << endl;
+		cout << "O valor dos juros  e de:  " << juros(x,y,z,n) << endl;
 		break;
 
 	case 31:
 
-		cout << "A distancia entre 2 pontos e de: 	" << dist(x,y,z,v,n) << endl;
+		cout << "A distancia entre 2 pontos e de:  " << dist(x,y,z,v,n) << endl;
 		break;
 
 	case 32:
@@ -737,5 +737,3 @@ float ener_cin(float& x, float& y, float& z) {
 
 	return(z);
 }
-
-	
