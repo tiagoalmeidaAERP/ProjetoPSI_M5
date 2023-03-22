@@ -525,6 +525,9 @@ float inch_cm(float& x, float& y) {
 				cout << "Digite a quantidade em polegadas para fazer a conversao: " << endl;
     cin >> x;
     y = x * 2.54;
+
+	system("cls");
+	return(y);
 }
 float met_ft(float& x, float& y) {
 	
