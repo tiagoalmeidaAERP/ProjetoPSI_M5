@@ -98,14 +98,14 @@ int main() {
 	cout << "Data de nascimento:\n";
 	cout << "Dia:";
 	cin >> utilizador.dataNasc.dia;
-	if (utilizador.dataNasc.dia <= 0.9 || utilizador.dataNasc.ano >= 31) {
+	if (utilizador.dataNasc.dia <= 0.9 || utilizador.dataNasc.dia >= 31) {
 
 		cout << "Esse dia e invalido, volte a introduzir o dia" << endl;
 		cin >> utilizador.dataNasc.dia;
 	}
 	cout << "Mes: ";
 	cin >> utilizador.dataNasc.mes;
-	if (utilizador.dataNasc.ano < 1 || utilizador.dataNasc.ano >= 13) {
+	if (utilizador.dataNasc.mes < 1 || utilizador.dataNasc.mes >= 13) {
 
 		cout << "Esse mes e invalido, volte a introduzir o mes" << endl;
 		cin >> utilizador.dataNasc.mes;
